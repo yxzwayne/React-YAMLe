@@ -1,0 +1,35 @@
+# React Component in YAML Format
+
+component:
+  name: MyComponent
+  props:
+    prop1: type1
+    prop2: type2
+  state:
+    stateVar1: initialValue1
+    stateVar2: initialValue2
+  lifecycleMethods:
+    - componentDidMount:
+        - callApi()
+    - componentDidUpdate:
+        - checkPropsUpdate()
+  methods:
+    - callApi:
+        - fetch(url)
+        - setState({ stateVar1: newData })
+    - checkPropsUpdate:
+        - if (prevProps.prop1 !== this.props.prop1):
+            - callApi()
+  render:
+    - div:
+        - props:
+            - className: container
+        - children:
+            - h1:
+                - props:
+                    - className: title
+                - children: "Hello, World!"
+            - MyCustomComponent:
+                - props:
+                    - data: state.stateVar1
+                    - onClick: methods.callApi
